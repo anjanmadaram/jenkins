@@ -8,6 +8,10 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: Build the Docker image
         run: docker build -f sdf -t new:1 .
+      - name: Docker login
+        run: docker login ghcr.io --username anjanmadaram -p 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      
+      - name: Docker push new:1
+        run: docker build -f sdf -t new:1 .           
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
